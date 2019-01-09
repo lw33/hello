@@ -6,24 +6,27 @@ import java.util.Scanner;
  *
  **/
 public class P2C {
-    public static void main(String[] args) {
+     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         while (true) {
-            try{
+            try {
                 String s = scanner.nextLine();
+                s = s.replaceAll("[^a-z|A-Z|0-9|\\ ]", " ");
                 String[] strs = s.split(" ");
                 StringBuilder res = new StringBuilder();
-                res.append("P" + strs[0].replace(".", "_"));
+                res.append("P" + strs[0] + "_");
                 for (int i = 1; i < strs.length; i++) {
+                    if ("".equals(strs[i])) {
+                        continue;
+                    }
                     String substring = strs[i].substring(0, 1);
                     String s1 = substring.toUpperCase();
                     res.append(s1 + strs[i].substring(1));
                 }
                 System.out.println(res);
-            } catch(Exception e) {
+            } catch (Exception e) {
 
             }
         }
-
     }
 }
