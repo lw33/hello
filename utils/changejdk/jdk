@@ -1,0 +1,5 @@
+#!/bin/bash
+#
+linkdir=/usr/local/links
+sudo rm ${linkdir}/jdk
+sudo ln -sv ${linkdir}/jdk$1 ${linkdir}/jdk
