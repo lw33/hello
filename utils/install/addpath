@@ -1,0 +1,16 @@
+#!/bin/bash
+#
+linkDir=/usr/local/links/
+confdir=/etc/profile.d/
+#read -p "link name: " name
+#read -p "software home name: " home
+name=$1
+typeset -u HOME
+HOME=$name
+sudo tee ${confdir}${name}.sh <<< echo << EOF
+export ${HOME}_HOME=${linkDir}${name}
+export PATH=\$${HOME}_HOME/bin:\$PATH
+EOF
+
+. ${confdir}${name}.sh
+

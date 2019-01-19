@@ -1,0 +1,4 @@
+#!/bin/bash
+#
+linkdir=/usr/local/links/
+sudo ln -sv $1 ${linkdir}`basename $1`
